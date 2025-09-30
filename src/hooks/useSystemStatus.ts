@@ -7,10 +7,10 @@ export function useSystemStatus() {
   const [load, setLoad] = useLocalStorage<number>('currentLoad', 180);
   const [nepaEnabled, setNepaEnabled] = useLocalStorage<boolean>('nepaEnabled', true);
   const [isCharging, setIsCharging] = useState(true);
-  const [solarVoltage, setSolarVoltage] = useState(58);
-  const [gridVoltage, setGridVoltage] = useState(190);
-  const [outputVoltage, setOutputVoltage] = useState(190);
-  const [solarEnabled, setSolarEnabled] = useState(true);
+  const [solarVoltage, setSolarVoltage] = useLocalStorage<number>('solarVoltage', 58);
+  const [gridVoltage, setGridVoltage] = useLocalStorage<number>('gridVoltage', 190);
+  const [outputVoltage, setOutputVoltage] = useLocalStorage<number>('outputVoltage', 190);
+  const [solarEnabled, setSolarEnabled] = useLocalStorage<boolean>('solarEnabled', true);
 
   const status: SystemStatus = {
     voltage,
