@@ -1,5 +1,5 @@
 import React from 'react';
-import { Battery, ArrowRight, CheckCircle, Plug, Sun } from 'lucide-react';
+import { ArrowRight, CheckCircle, Plug, Sun } from 'lucide-react';
 import type { SystemConfig } from '../types';
 
 interface SetupWizardProps {
