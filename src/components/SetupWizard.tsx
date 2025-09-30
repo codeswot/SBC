@@ -22,19 +22,18 @@ export const SetupWizard: React.FC<SetupWizardProps> = ({
       <div className="text-center mb-6">
         <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
           <svg width="80" height="80" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="15" fill="#1E40AF"/>
-            <circle cx="16" cy="16" r="8" fill="#F59E0B"/>
-            <g stroke="#FBBF24" strokeWidth="2" strokeLinecap="round">
-              <line x1="16" y1="4" x2="16" y2="8"/>
-              <line x1="16" y1="24" x2="16" y2="28"/>
-              <line x1="4" y1="16" x2="8" y2="16"/>
-              <line x1="24" y1="16" x2="28" y2="16"/>
-              <line x1="6.34" y1="6.34" x2="9.17" y2="9.17"/>
-              <line x1="22.83" y1="22.83" x2="25.66" y2="25.66"/>
-              <line x1="6.34" y1="25.66" x2="9.17" y2="22.83"/>
-              <line x1="22.83" y1="9.17" x2="25.66" y2="6.34"/>
+            <circle cx="16" cy="16" r="12" fill="#F59E0B" stroke="#D97706" strokeWidth="2"/>
+            <g stroke="#D97706" strokeWidth="2" strokeLinecap="round">
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="16" y1="26" x2="16" y2="30"/>
+              <line x1="2" y1="16" x2="6" y2="16"/>
+              <line x1="26" y1="16" x2="30" y2="16"/>
+              <line x1="5.66" y1="5.66" x2="8.49" y2="8.49"/>
+              <line x1="23.51" y1="23.51" x2="26.34" y2="25.66"/>
+              <line x1="5.66" y1="26.34" x2="8.49" y2="23.51"/>
+              <line x1="23.51" y1="8.49" x2="26.34" y2="5.66"/>
             </g>
-            <path d="M14 10L18 14L16 14L18 22L14 14L16 14L14 10Z" fill="#FBBF24"/>
+            <path d="M12 8L20 16L16 16L20 24L12 16L16 16L12 8Z" fill="#FBBF24" stroke="#D97706" strokeWidth="1"/>
           </svg>
         </div>
         <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome to SBC</h1>

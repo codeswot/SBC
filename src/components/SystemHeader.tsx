@@ -23,7 +23,10 @@ export const SystemHeader: React.FC<SystemHeaderProps> = ({
     <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-white">
       <div className="flex items-center justify-between mb-3">
         <div className="flex-1">
-          <h1 className="text-3xl font-bold">{config.systemName}</h1>
+          <div className="flex items-center gap-2 mb-1">
+            <img src="/sbc-icon.svg" alt="SBC" className="w-6 h-6" />
+            <h1 className="text-3xl font-bold">{config.systemName}</h1>
+            </div>
           <p className="text-blue-200 text-sm mt-1">
             {config.systemVoltage}V System • {config.numBatteries}×{config.batteryVoltage}V {config.batteryCapacity}Ah
           </p>

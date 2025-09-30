@@ -13,7 +13,8 @@ import {
   calculateLoadPercentage,
   calculateChargeETA,
   getChargeStatus,
-  calculateSolarPower
+  calculateSolarPower,
+  calculateBatteryPercentage
 } from './utils/calculations';
 
 function App() {
@@ -141,6 +142,40 @@ function App() {
     nepaAvailable,
     solarAvailable
   );
+
+  useEffect(() => {
+    const batteryHealthy = status.voltage > (config.systemVoltage === 24 ? 22.0 : config.systemVoltage === 12 ? 11.0 : config.systemVoltage - 2);
+    const shouldOutput = nepaAvailable || solarAvailable || batteryHealthy;
+
+    if (!shouldOutput) {
+      if (status.outputVoltage !== 0) setOutputVoltage(0);
+      return;
+    }
+
+    const base = 216;
+
+    const loadRatio = Math.max(0, Math.min(1, status.load / Math.max(1, config.inverterCapacity)));
+    const loadDroop = -Math.min(12, loadRatio * 12);
+
+    const batteryPct = calculateBatteryPercentage(status.voltage, status.isCharging, config.systemVoltage);
+    const batteryDroop = batteryPct < 60 ? -Math.min(6, (60 - batteryPct) / 8) : 0;
+
+    // Source stabilization: NEPA helps hold voltage a bit higher
+    const sourceBoost = nepaAvailable ? 1 : 0;
+
+    // Small mild jitter (+/- ~1.5 V)
+    const jitter = Math.sin(Date.now() / 30000) * 1.0;
+
+    let computed = base + loadDroop + batteryDroop + sourceBoost + jitter;
+    // Clamp to a realistic window
+    computed = Math.max(208, Math.min(228, computed));
+
+    const rounded = Math.round(computed);
+    if (status.outputVoltage !== rounded) {
+      setOutputVoltage(rounded);
+    }
+    
+  }, [nepaAvailable, solarAvailable, status.voltage, config.systemVoltage]);
 
   if (!setupComplete) {
     return (
