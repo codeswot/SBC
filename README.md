@@ -189,4 +189,4 @@ This project is licensed under the BSD 3-Clause License - see the LICENSE file f
 
 ## Support
 
-For support, email <elmubarak33@gmail.com> or create an issue in the repository.
+For support, email <elmubarak333@gmail.com> or create an issue in the repository.
