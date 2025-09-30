@@ -20,7 +20,23 @@ export const SetupWizard: React.FC<SetupWizardProps> = ({
   const renderStep1 = () => (
     <div className="space-y-6">
       <div className="text-center mb-6">
-        <Battery className="w-20 h-20 mx-auto text-blue-600 mb-4" />
+        <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+          <svg width="80" height="80" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="15" fill="#1E40AF"/>
+            <circle cx="16" cy="16" r="8" fill="#F59E0B"/>
+            <g stroke="#FBBF24" strokeWidth="2" strokeLinecap="round">
+              <line x1="16" y1="4" x2="16" y2="8"/>
+              <line x1="16" y1="24" x2="16" y2="28"/>
+              <line x1="4" y1="16" x2="8" y2="16"/>
+              <line x1="24" y1="16" x2="28" y2="16"/>
+              <line x1="6.34" y1="6.34" x2="9.17" y2="9.17"/>
+              <line x1="22.83" y1="22.83" x2="25.66" y2="25.66"/>
+              <line x1="6.34" y1="25.66" x2="9.17" y2="22.83"/>
+              <line x1="22.83" y1="9.17" x2="25.66" y2="6.34"/>
+            </g>
+            <path d="M14 10L18 14L16 14L18 22L14 14L16 14L14 10Z" fill="#FBBF24"/>
+          </svg>
+        </div>
         <h1 className="text-3xl font-bold text-gray-800 mb-2">Welcome to SBC</h1>
         <p className="text-gray-600">Solar Battery Calculator - Configure your power system in 4 simple steps</p>
       </div>
