@@ -20,8 +20,7 @@ export const SystemStatusCard: React.FC<SystemStatusProps> = ({
   onVoltageChange,
   onLoadChange,
   onGridVoltageChange,
-  onSolarVoltageChange,
-  onOutputVoltageChange,
+  onSolarVoltageChange,  
   onToggleCharging,
   powerSourceStatus
 }) => {
